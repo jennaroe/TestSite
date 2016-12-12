@@ -1,4 +1,6 @@
-$.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=41a5fe023d56112c2f4cc2617eb6a750&per_page=25&format=json&nojsoncallback=1").then(function(photos) {
+$.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=41a5fe023d56112c2f4cc2617eb6a750&per_page=25&format=json&nojsoncallback=1").then(
+
+function(photos) {
 
 
 // $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?&lang=en-us&format=json&jsoncallback=?").then(function(photos) {
@@ -47,7 +49,7 @@ $(function() {
         });
 
       });
-  }
+    }
 
 });
 

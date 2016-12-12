@@ -3,8 +3,6 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&
 
 // $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?&lang=en-us&format=json&jsoncallback=?").then(function(photos) {
 
-console.log(photos);
-
         $(function() {
 
         var searchTerm="New Zealand";
@@ -37,32 +35,27 @@ console.log(photos);
             },
             function(data)
             {
-         
-
                 $.each(data.items, function(i, item)
                 {
                   $('<div class="item"><img src="'+item.media.m+'"><div class="carousel-caption"><p>'+item.title+'</p></div></div>').appendTo('.carousel-inner');
                   
-                  $('<li data-target="#myCarousel" data-slide-to="'+i+'"></li>').appendTo('.carousel-indicators');
+                  $('<li data-target="#myCarousel" data-slide-to="'+i+'"></li>').appendTo('.myCarousel');
                   $('.item').first().addClass('active');
-                  $('.carousel-indicators > li').first().addClass('active');
+                  $('.myCarousel > li').first().addClass('active');
 
                 }) ;
 
             }) ;
          } 
 
-      //    $(function(){
+         $(function(){
+            $('.carousel-control').click(function(e){
+            e.preventDefault();
+            $('#myCarousel').carousel( $(this).data() );
+        });
 
-      //       $('.carousel-control').click(function(e){
-      //       e.preventDefault();
-      //       $('#myCarousel').carousel( $(this).data() );
-      //   });
-
-      // });
+      });
 
     })
 
 });
-
-
